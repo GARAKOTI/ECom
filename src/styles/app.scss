@@ -35,13 +35,12 @@
   }
   
   @import "admin-styles/_mixin";
-  
+  @import "home";
   @import "admin-styles/dashboard";
   @import "admin-styles/products";
   @import "admin-styles/chart";
   @import "admin-styles/dashboardapp";
   @import "admin-styles/mediaquery";
-  
 
 .header{
   @include flex(row, flex-end, stretch , 1.2rem);

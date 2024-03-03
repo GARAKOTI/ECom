@@ -10,33 +10,41 @@ import { Link } from "react-router-dom";
 
 const user = { _id: "dfd", role: "admin" };
 
-
 const Header = () => {
-    const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
-    const logOutHandler = () => {window.alert('logout successfully');
-setIsOpen(false)}
+  const logOutHandler = () => {
+    window.alert("logout successfully");
+    setIsOpen(false);
+  };
   return (
     <nav className="header">
-      <Link onClick={()=>setIsOpen(false)} to={"/"}> Home</Link>
-      <Link onClick={()=>setIsOpen(false)} to={"/search"}>
+      <Link onClick={() => setIsOpen(false)} to={"/"}>
+        {" "}
+        Home
+      </Link>
+      <Link onClick={() => setIsOpen(false)} to={"/search"}>
         <FaSearch />
       </Link>
-      <Link onClick={()=>setIsOpen(false)} to={"/cart"}>
+      <Link onClick={() => setIsOpen(false)} to={"/cart"}>
         <FaShoppingBag />
       </Link>
       {user?._id ? (
         <>
-          <button onClick={()=>setIsOpen((prev) =>!prev)}>
+          <button onClick={() => setIsOpen((prev) => !prev)}>
             <FaUser />
-          </button  >
-          <dialog open = {isOpen}>
+          </button>
+          <dialog open={isOpen}>
             <div>
               {user.role === "admin" && (
-                <Link onClick={()=>setIsOpen(false)} to="/admin/dashboard">Admin</Link>
+                <Link onClick={() => setIsOpen(false)} to="/admin/dashboard">
+                  Admin
+                </Link>
               )}
 
-              <Link onClick={()=>setIsOpen(false)} to="/orders">Orders</Link>
+              <Link onClick={() => setIsOpen(false)} to="/orders">
+                Orders
+              </Link>
               <button onClick={logOutHandler}>
                 <FaSignOutAlt />
               </button>
